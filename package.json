@@ -5,8 +5,12 @@
     "critical": "^1.3.3",
     "glob": "^7.1.2"
   },
+  "bin": {
+    "judge": "index.js"
+  },
   "name": "judge",
-  "description": "The critical observer for static sites. Monitor static files for changes, asynchronously inline critical css.",
+  "description":
+    "The critical observer for static sites. Monitor static files for changes, asynchronously inline critical css.",
   "version": "1.0.0",
   "main": "index.js",
   "devDependencies": {},

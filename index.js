@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 const critical = require("critical");
 const chokidar = require("chokidar");
 const cheerio = require("cheerio");
