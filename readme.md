@@ -7,7 +7,7 @@ The critical observer for static sites. Monitor static files for changes, asynch
 Get Judged.
 
 1.  `npm i -g judge`
-1.  `judge html/glob/**/*.html`
+1.  `judge html/glob/**/*.html path/to/styles.css &> judge.log &`
 1.  Profit
 
 ### Helpful links

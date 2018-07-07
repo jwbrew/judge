@@ -37,11 +37,14 @@ const update = path => {
           $('link[rel="stylesheet"]').appendTo($("body"));
         }
 
-        if (data === $.html()) return;
+        if (data === $.html()) {
+          console.log(`Updating: ${path}\n\rNo Change`);
+          return;
+        }
 
         fs.writeFile(path, $.html(), function(err) {
           if (err) throw err;
-          console.log("complete");
+          console.log(`Updating: ${path}\n\tComplete`);
         });
       });
     });
@@ -50,7 +53,7 @@ const update = path => {
 const updateAll = () => {
   return glob(base, function(er, files) {
     return Promise.all(files.map(update)).then(() =>
-      console.log("CSS Changed. Updated All")
+      console.log(`CSS Changed. \n\rUpdated All`)
     );
   });
 };
