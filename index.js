@@ -5,24 +5,20 @@ const cheerio = require("cheerio");
 const fs = require("fs");
 
 const base = process.argv[2];
-// const styles = process.argv[3];
-
-// console.log({ styles });
 
 const update = path => {
   return critical
     .generate({
       base: ".",
       src: path,
-      // css: [styles],
       width: 1300,
       height: 900,
       minify: true,
       penthouse: {
         screenshots: {
-          basePath: path, // absolute or relative; excluding file extension
-          type: "jpeg", // jpeg or png, png default
-          quality: 60 // only applies for jpeg type
+          basePath: path,
+          type: "jpeg",
+          quality: 60
         }
       }
     })
@@ -41,7 +37,6 @@ const update = path => {
 
         if (data === $.html()) return;
 
-        //Do your processing, MD5, send a satellite to the moon, etc.
         fs.writeFile(path, $.html(), function(err) {
           if (err) throw err;
           console.log("complete");
@@ -52,6 +47,5 @@ const update = path => {
 
 chokidar
   .watch(base)
-  .on("all", console.log)
   .on("add", update)
   .on("change", update);
