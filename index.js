@@ -39,10 +39,7 @@ const update = path => {
           $('link[rel="stylesheet"]').appendTo($("body"));
         }
 
-        if (data === $.html()) {
-          console.log(`Updating: ${path}\n\rNo Change`);
-          return;
-        }
+        if (data === $.html()) return;
 
         fs.writeFile(path, $.html(), function(err) {
           if (err) throw err;
