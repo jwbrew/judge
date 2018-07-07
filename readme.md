@@ -9,3 +9,7 @@ Get Judged.
 1.  `npm i -g judge`
 1.  `judge html/glob/**/*.html`
 1.  Profit
+
+### Helpful links
+
+[https://github.com/GoogleChrome/puppeteer/issues/404](https://github.com/GoogleChrome/puppeteer/issues/404)

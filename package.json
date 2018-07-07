@@ -2,7 +2,8 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
     "chokidar": "^2.0.4",
-    "critical": "^1.3.3"
+    "critical": "^1.3.3",
+    "glob": "^7.1.2"
   },
   "name": "judge",
   "description": "The critical observer for static sites. Monitor static files for changes, asynchronously inline critical css.",

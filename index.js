@@ -1,10 +1,12 @@
 const critical = require("critical");
 const chokidar = require("chokidar");
 const cheerio = require("cheerio");
+const glob = require("glob");
 
 const fs = require("fs");
 
 const base = process.argv[2];
+const css = process.argv[3];
 
 const update = path => {
   return critical
@@ -45,7 +47,17 @@ const update = path => {
     });
 };
 
+const updateAll = () => {
+  return glob(base, function(er, files) {
+    return Promise.all(files.map(update)).then(() =>
+      console.log("CSS Changed. Updated All")
+    );
+  });
+};
+
 chokidar
   .watch(base)
   .on("add", update)
   .on("change", update);
+
+chokidar.watch(css).on("change", updateAll);
